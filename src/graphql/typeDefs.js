@@ -17,7 +17,7 @@ module.exports = gql`
     login(email: String!, password: String!): AuthReturn!
     register(input: RegisterInput!): AuthReturn!
     addUser(input: userInput!): User!
-    addQuestion(input: questionInput): Question!
+    addQuestion(input: questionInput!): Question!
     addScore(input: scoreInput): Score!
     addCategory(input: categoryInput!): Category!
   }

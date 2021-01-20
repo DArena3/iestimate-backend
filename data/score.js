@@ -17,6 +17,4 @@ for (let i = 0; i < 30; ++i) {
   scoreData.push(casual.score({ userId, categoryId }))
 }
 
-console.dir(scoreData, {depth: null})
-
 module.exports = scoreData

@@ -10,7 +10,7 @@ const allUsers = async () => {
   }
 }
 
-const userById = async (obj, { id }, context) => {
+const userById = async (obj, { id }) => {
   try {
     const query = await User.query().where('id', id)
     return query
@@ -19,7 +19,7 @@ const userById = async (obj, { id }, context) => {
   }
 }
 
-const scores = async ({ id }, args, context) => {
+const scores = async ({ id }) => {
   try {
     const query = await Score.query().where('userId', id)
     return query

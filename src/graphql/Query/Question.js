@@ -5,11 +5,11 @@ const allQuestions = async () => {
     const query = await Question.query()
     return query
   } catch (err) {
-    throw new Error('Could not resolve users query.')
+    throw new Error('Could not resolve questions query.')
   }
 }
 
-const questionById = async (obj, { id }, context) => {
+const questionById = async (obj, { id }) => {
   try {
     const query = await Question.query().where('id', id)
     return query
