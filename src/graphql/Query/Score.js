@@ -18,10 +18,22 @@ const scoreById = async (obj, { id }) => {
   }
 }
 
+const updateScore = async (obj, { userId, categoryId, score }) => {
+  try {
+    const query = await Score.query().update({ score }).where({ userId, categoryId }).returning('*')
+    return query[0]
+  } catch (err) {
+    throw new Error('Could not update score for the user')
+  }
+}
+
 const resolver = {
   Query: {
     allScores,
     scoreById,
+  },
+  Mutation: {
+    updateScore,
   },
 }
 

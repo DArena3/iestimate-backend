@@ -22,6 +22,7 @@ module.exports = gql`
     addQuestion(input: questionInput!): Question!
     addScore(input: scoreInput): Score!
     addCategory(input: categoryInput!): Category!
+    updateScore(userId: ID!, categoryId: ID!, score: Int!): Score!
   }
 
   type User {
