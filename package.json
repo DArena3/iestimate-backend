@@ -46,7 +46,7 @@
     "knex": "^0.20.2",
     "lodash.merge": "^4.6.2",
     "morgan": "^1.9.1",
-    "objection": "^1.6.11",
+    "objection": "^2.2.7",
     "pg": "^7.14.0",
     "uuidv4": "^6.0.0"
   }

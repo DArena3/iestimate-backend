@@ -19,6 +19,16 @@ const userById = async (obj, { id }) => {
   }
 }
 
+const leaderboardByCategory = async (obj, { categoryId }) => {
+  try {
+    const query = await User.query().withGraphJoined('scores').where('scores.categoryId', categoryId).orderBy('scores.score', 'desc')
+    return query.slice(0, 10)
+  } catch (err) {
+    // console.log(err)
+    throw new Error('Could not get the leaderboard.')
+  }
+}
+
 const scores = async ({ id }) => {
   try {
     const query = await Score.query().where('userId', id)
@@ -28,13 +38,25 @@ const scores = async ({ id }) => {
   }
 }
 
+const scoreByCategory = async ({ id }, { categoryId }) => {
+  try {
+    const query = await Score.query().findOne({ userId: id, categoryId })
+    return query
+  } catch (err) {
+    // console.log(err)
+    throw new Error('Could not resolve the user\'s score by category query.')
+  }
+}
+
 const resolver = {
   Query: {
     allUsers,
     userById,
+    leaderboardByCategory,
   },
   User: {
     scores,
+    scoreByCategory,
   },
 }
 

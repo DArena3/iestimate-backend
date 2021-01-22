@@ -11,6 +11,7 @@ module.exports = gql`
     questionById(id: ID!): Question!
     allScores: [Score!]!
     scoreById(id: ID!): Score!
+    leaderboardByCategory(categoryId: ID!): [User!]!
   }
 
   type Mutation {
@@ -34,6 +35,7 @@ module.exports = gql`
     accuracy: Float
     gamesPlayed: Int 
     scores: [Score!]
+    scoreByCategory(categoryId: ID!): Score!
   }
 
   input userInput {
