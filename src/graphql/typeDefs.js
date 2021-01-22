@@ -12,6 +12,7 @@ module.exports = gql`
     allScores: [Score!]!
     scoreById(id: ID!): Score!
     leaderboardByCategory(categoryId: ID!): [User!]!
+    randomQuestionByCategory(categoryId: ID!): Question!
   }
 
   type Mutation {

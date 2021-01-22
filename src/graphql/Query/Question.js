@@ -1,3 +1,4 @@
+const casual = require('casual')
 const Question = require('../../models/Question')
 
 const allQuestions = async () => {
@@ -18,10 +19,20 @@ const questionById = async (obj, { id }) => {
   }
 }
 
+const randomQuestionByCategory = async (obj, { categoryId }) => {
+  try {
+    const query = await Question.query().where('categoryId', categoryId)
+    return casual.random_element(query)
+  } catch (err) {
+    throw new Error('Could not resolve question by id query.')
+  }
+}
+
 const resolver = {
   Query: {
     allQuestions,
     questionById,
+    randomQuestionByCategory,
   },
 }
 
